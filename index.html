@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Worktime calculator</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <script src="scripts/main.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="root">
+            <form>
+                <div id="work">
+                    <label class="label" for="workStartTime">Work start</label>
+                    <input id="workStartTime" type="time" />
+                    <br>
+                    <label class="label" for="workEndTime">Work end</label>
+                    <input id="workEndTime" type="time" />
+                </div>
+                <div id="lunch">
+                    <button class="toggleLunch" type="button" onclick="toggleLunch()">Lunch</button>
+                    <div id="lunchInputs">
+                        <label class="label" for="lunchStartTime">Lunch start</label>
+                        <input id="lunchStartTime" type="time" />
+                        <br>
+                        <label class="label" for="lunchEndTime">Lunch end</label>
+                        <input id="lunchEndTime" type="time" />
+                    </div>
+                </div>
+                <div id="flex">
+                    <button class="addFlex" type="button">Flex</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
