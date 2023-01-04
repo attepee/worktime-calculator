@@ -1,3 +1,83 @@
-#lunchInputs {
-    display: none;
+html {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    color: #111;
+}
+
+#container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    border-bottom: 2px solid #111;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+h1 {
+    text-align: center;
+    padding: 0.5em;
+    border-bottom: 2px solid #111;
+}
+
+.inputContainer {
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.inputLabel, .timeInput, .textInput {
+    display: inline-block;
+    text-align: center;
+    font-size: 2em;
+}
+
+.inputLabel {
+    width: 25%;
+}
+
+.inputSet {
+    width: 70%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+
+.timeInput {
+    width: 50%;
+}
+
+.hyphen {
+    font-size: 3em;
+}
+
+.textInput {
+    width: 100%;
+}
+
+.textInput, .timeInput {
+    border: 2px solid #111;
+    border-radius: 0.2em;
+}
+
+@media only screen and (max-width: 1200px) {
+    #container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #container {
+        width: 100%;
+    }
+
+    .inputLabel {
+        display: block;
+        text-align: left;
+    }
+
+    .inputSet {
+        width: 100%;
+    }
 }
