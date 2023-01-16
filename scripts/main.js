@@ -19,6 +19,15 @@ function calculateWorkTime() {
         var overtime = total - 450;
         totalWorkTimeElem.value = total / 60;
         overtimeElem.value = overtime / 60;
+
+        localStorage.setItem("storedTimes", JSON.stringify({
+            WorkStart: workStart,
+            WorkEnd: workEnd,
+            LunchStart: lunchStart,
+            LunchEnd: lunchEnd,
+            FlexStart: flexStart,
+            FlexEnd: flexEnd
+        }));
     } catch (error) {
         console.error(error);
     }
@@ -52,11 +61,26 @@ function roundInputTime(id) {
             var ms = 1000 * 60 * 15;
             var roundedDate = new Date(Math.round(date.getTime() / ms) * ms);
             var hours = ("0" + roundedDate.getHours()).slice(-2)
-            var minutes = ("0" +roundedDate.getMinutes()).slice(-2)
+            var minutes = ("0" + roundedDate.getMinutes()).slice(-2)
             var newValue = hours + ":" + minutes;
 
             input.value = newValue;
         }   
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function getLocalStorage() {
+    try {
+        var storedTimes = JSON.parse(localStorage.getItem("storedTimes"));
+
+        document.getElementById("workStartTime").value = storedTimes.WorkStart;
+        document.getElementById("workEndTime").value = storedTimes.WorkEnd;
+        document.getElementById("lunchStartTime").value = storedTimes.LunchStart;
+        document.getElementById("lunchEndTime").value = storedTimes.LunchEnd;
+        document.getElementById("flexStartTime").value = storedTimes.FlexStart;
+        document.getElementById("flexEndTime").value = storedTimes.FlexEnd;
     } catch (error) {
         console.error(error);
     }
