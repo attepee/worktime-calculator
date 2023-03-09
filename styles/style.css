@@ -20,6 +20,15 @@ html {
     padding-top: 1em;
 }
 
+#settings {
+    border-top: 2px solid #000;
+}
+
+#optionsToggle {
+    cursor: pointer;
+    float: right;
+}
+
 h1 {
     text-align: center;
     padding: 0.5em;
@@ -63,6 +72,7 @@ h1 {
 .textInput, .timeInput {
     border: 2px solid #111;
     border-radius: 0.2em;
+    font-family: monospace;
 }
 
 a, a:visited{

@@ -6,7 +6,7 @@
         <script src="scripts/main.js" type="text/javascript"></script>
         <meta charset="UTF-8">
     </head>
-    <body onload="getLocalStorage(); calculateWorkTime()">
+    <body onload="getStoreTimes(); getStoredOptions(); calculateWorkTime()">
         <div id="wrapper">
             <div id="container">
                 <h1>Worktime calculator</h1>
@@ -30,7 +30,6 @@
                         />
                     </div>
                 </div>
-
                 <div id="lunchRoot" class="inputContainer">
                     <label class="inputLabel" for="lunchStartTime">Lunch</label>
                     <div class="inputSet">
@@ -51,7 +50,6 @@
                         />
                     </div>
                 </div>
-
                 <div id="flexRoot" class="inputContainer">
                     <label class="inputLabel" for="flexStartTime">Flex</label>
                     <div class="inputSet">
@@ -72,22 +70,53 @@
                         />
                     </div>
                 </div>
-
                 <div id="totalRoot" class="inputContainer">
                     <label class="inputLabel" for="totalWorkTime">Total</label>
                     <div class="inputSet">
                         <input id="totalWorkTime" class="textInput" type="text" disabled />
                     </div>
                 </div>
-
                 <div id="overtimeRoot" class="inputContainer">
-                    <label class="inputLabel" for="overtimeWorkTime">Overtime</label>
+                    <label class="inputLabel" for="overtime">Overtime</label>
                     <div class="inputSet">
                         <input id="overtime" class="textInput" type="text" disabled />
                     </div>
                 </div>
+                <div id="settings" style="display: none;">
+                    <div id="roundTimesRoot" class="inputContainer">
+                        <label class="inputLabel" for="roundTimes">Inputs</label>
+                        <div class="inputSet">
+                            <select id="roundTimes" class="textInput" onchange="storeOptions(); calculateWorkTime()">
+                                <option value="-1" id="roundTimes-1" selected>No rounding</option>
+                                <option value="60" id="roundTimes0">To hour</option>
+                                <option value="10" id="roundTimes10">To 10 minutes</option>
+                                <option value="15" id="roundTimes15">To 15 minutes</option>
+                                <option value="30" id="roundTimes30">To 30 minutes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="roundResultsRoot" class="inputContainer">
+                        <label class="inputLabel" for="roundResult">Result</label>
+                        <div class="inputSet">
+                            <select id="roundResult" class="textInput" onchange="storeOptions(); calculateWorkTime()">
+                                <option value="-1" id="roundResult-1" selected>No rounding (result rounding not functional)</option>
+                                <option value="60" id="roundResult0">To hour</option>
+                                <option value="10" id="roundResult10">To 10 minutes</option>
+                                <option value="15" id="roundResult15">To 15 minutes</option>
+                                <option value="30" id="roundResult30">To 30 minutes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="defaultWorktimeRoot" class="inputContainer">
+                        <label class="inputLabel" for="defaultWorktime">Worktime</label>
+                        <div class="inputSet">
+                            <input id="defaultWorktime" class="textInput" type="text" onblur="storeOptions(); calculateWorkTime()" />
+                        </div>
+                    </div>
+                </div>
             </div>
             <a href="https://github.com/attepee/worktime-calculator">GitHub</a>
+            <a id="optionsToggle" onclick="toggleOptions()">Show options</a>
         </div>
     </body>
 </html>
